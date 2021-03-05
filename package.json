@@ -27,7 +27,7 @@
         "test-e2e-ci": "start-server-and-test start-dev-server http://localhost:9990 'cypress run'",
         "test-watch": "jest --watch --coverage --coverageReporters=lcov  --config jest.config.json",
         "prettier": "prettier ./src/* --write",
-        "build": "tsc -p . && rollup -c && make api",
+        "build": "tsc -p . && rollup -c",
         "watch": "concurrently \"tsc --watch -p .\" \"rollup -c -w\"",
         "prepublishOnly": "yarn build",
         "postpublish": "git push --tags",
