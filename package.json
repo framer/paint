@@ -1,6 +1,6 @@
 {
     "name": "framer-paint",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "An experimental CSS Paint library",
     "main": "dist/framer-paint.cjs.js",
     "module": "dist/es/index.js",
