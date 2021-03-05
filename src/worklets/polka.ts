@@ -54,7 +54,7 @@ export const polka: WorkletDefinition<PolkaOptions> = {
         const styles = {}
 
         for (const key in options) {
-            styles[camelToDash(key)] = options[key]
+            styles[`--polka-${camelToDash(key)}`] = options[key]
         }
 
         return styles
