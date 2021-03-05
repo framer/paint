@@ -12,9 +12,17 @@ export function usePaint({ background, mask }: PaintOptions) {
         mask && registerPaintWorklet(mask)
     }, [])
 
-    return {
-        background: `paint(polka)`,
+    const styles: React.CSSProperties = {}
+
+    if (background) {
+        styles.background = `paint(${background.name})`
     }
+
+    if (mask) {
+        styles.WebkitMaskImage = `paint(${mask.name})`
+    }
+
+    return styles
 }
 
 const registeredPaintWorklets = new Set<string>()
