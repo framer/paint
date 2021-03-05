@@ -5,8 +5,9 @@ export interface VariableDefinition {
     inherits: boolean
 }
 
-export interface WorkletDefinition {
+export interface WorkletDefinition<O = any> {
     name: string
     vars: VariableDefinition[]
-    blob: Blob
+    blob: string
+    options: (options: O) => any
 }

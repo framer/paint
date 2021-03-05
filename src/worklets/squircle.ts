@@ -1,6 +1,11 @@
-export const squircle = {
+import { WorkletDefinition } from "./types"
+
+export interface SquircleOptions {}
+
+export const squircle: WorkletDefinition<SquircleOptions> = {
     name: "squircle",
     vars: [],
+    options: () => ({}),
     blob: URL.createObjectURL(
         new Blob(
             [

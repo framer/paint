@@ -1,4 +1,16 @@
-export const polka = {
+import { camelToDash } from "../utils"
+import { WorkletDefinition } from "./types"
+
+export interface PolkaOptions {
+    backgroundColor?: string
+    color?: string
+    size?: number
+    gap?: number
+    offsetX?: number
+    offsetY?: number
+}
+
+export const polka: WorkletDefinition<PolkaOptions> = {
     name: "polka",
     vars: [
         {
@@ -38,6 +50,15 @@ export const polka = {
             inherits: false,
         },
     ],
+    options: (options: PolkaOptions) => {
+        const styles = {}
+
+        for (const key in options) {
+            styles[camelToDash(key)] = options[key]
+        }
+
+        return styles
+    },
     // TODO Generate these from compiled typescript
     blob: URL.createObjectURL(
         new Blob(
